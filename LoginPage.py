@@ -1,7 +1,8 @@
 from selenium.webdriver.common.by import By
 
-from .base_page import BasePage
-from .locators import MainPageLocators
+from main_page import MainPage
+from base_page import BasePage
+
 
 
 class LoginPage(BasePage):
@@ -21,3 +22,11 @@ class LoginPage(BasePage):
     def should_be_register_form(self):
         assert self.is_element_present(By.CSS_SELECTOR, "REGISTER_FORM"), "Register form is not presented"
         assert True
+
+def test_guest_can_go_to_login_page(browser):
+    link = "http://selenium1py.pythonanywhere.com"
+    page = MainPage(browser, link)
+    page.open()
+    page.go_to_login_page()
+    login_page = LoginPage(browser, browser.current_url)
+    login_page.should_be_login_page()
