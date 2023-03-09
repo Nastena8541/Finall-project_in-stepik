@@ -16,3 +16,12 @@ class LoginPageLocators():
         self.browser.find_element(By.CSS_SELECTOR, "login-username").send_keys("1234@mail.ru")
         self.browser.find_element(By.CSS_SELECTOR, "login-password").send_keys("name123")
         self.browser.find_element(By.CSS_SELECTOR, "login_submit").click()
+
+class ProductPageLocators():
+    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
+
+
+
+
+
+
